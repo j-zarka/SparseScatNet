@@ -56,13 +56,13 @@ To reproduce the paper's experiments, run the following commands:
 python main.py -a sparsescatnet -p 100 --scattering-J 4 --scattering-order2 --scattering-wph --L-kernel-size 3 --dictionary-size 2048
 --L-proj-size 256 --epochs 160 --learning-rate-adjust-frequency 60 --lr 0.01 --lambda-star 0.05 --grad-lambda-star
 --lambda-star-lb 0.05 --l0-inf-init --epsilon-lambda-0 1 --logdir path/to/training_dir --n-iterations 12 --backend torch_skcuda 
---classifier mlp --nb-l-mlp 2 --dropout-p-mlp 0.3 --nb-hidden-units 4096 --avg-ker-size 5 --savedir path/to/checkpoint_dir 
+--classifier-type mlp --nb-l-mlp 2 --dropout-p-mlp 0.3 --nb-hidden-units 4096 --avg-ker-size 5 --savedir path/to/checkpoint_dir 
 -j 10  path/to/ImageNet
 ```
 
 - For classification on Scat. + ISTC α with flexible W, simply change the arch option from sparsescatnet to sparsescatnetw,
 for classification on Scat + ISTC Dα with  W = D, simply add the --output-rec option, and finally for Scat + ISTC α with W = D
-and for a linear classifier, simply change --classifier option from 'mlp' to 'fc' and remove mlp-linked options (nb-l-mlp,
+and for a linear classifier, simply change --classifier-type option from 'mlp' to 'fc' and remove mlp-linked options (nb-l-mlp,
 dropout-p-mlp, nb-hidden-units).
 
 For more details, please see below usage.
